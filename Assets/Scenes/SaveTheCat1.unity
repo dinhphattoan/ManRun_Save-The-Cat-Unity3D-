@@ -1120,7 +1120,7 @@ MonoBehaviour:
   NumberOfCatSpawners: 6
   NumberOfProb: 4
   NumberOfSampling: 10
-  SpawnedCatHolder: {fileID: 1927671190}
+  SpawnedCatHolder: {fileID: 106184423}
 --- !u!1 &320127325
 GameObject:
   m_ObjectHideFlags: 0

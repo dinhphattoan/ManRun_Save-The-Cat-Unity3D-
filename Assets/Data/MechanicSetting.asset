@@ -17,7 +17,7 @@ MonoBehaviour:
   _tempAdditionalMaxSpeed: 0
   _moveSpeed: 0
   _maxMoveSpeed: 10
-  _moveSpeedLerpSpeed: 7
+  _moveSpeedLerpSpeed: 10
   _rotationSpeed: 9
   _tsunamiMoveSpeed: 10
   SpawnRadius: 20

@@ -115,6 +115,13 @@ public class LevelManager : MonoBehaviour
 
         IsProcess = false;
     }
-    private void OnDestroy() => FindFirstObjectByType<SoundController>().PlayBackgroundMusic();
+    private void OnDestroy()
+    {
+        SoundController soundController =FindFirstObjectByType<SoundController>();
+        if(soundController)
+        {
+            soundController.PlayBackgroundMusic();
+        }
+    }
 
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64270ebf09ed004d8adf62050e54101, type: 3}
   m_Name: GameDatabase
   m_EditorClassIdentifier: 
-  _currencyValue: 150
-  _maxSpeedAdditionalStored: 1.2
+  _currencyValue: 200
+  _maxSpeedAdditionalStored: 0
   _costCurrencyPerUpgrade: 50
   _speedPerUpgradeEarn: 0.2
   _currencyEarn: 12

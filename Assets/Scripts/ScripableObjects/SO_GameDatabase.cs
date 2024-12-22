@@ -25,7 +25,6 @@ public class SO_GameDatabase : ScriptableObject
     [SerializeField] private AudioClip _pickupSound;
     [SerializeField] private AudioClip _placeSound;
 
-    // Public Properties
     public int CurrencyValue { get => _currencyValue; set => _currencyValue = value; }
     public float MaxSpeedAdditionalStored => _maxSpeedAdditionalStored;
     public AudioClip UpgradeClip => _upgradeClip;
@@ -93,7 +92,6 @@ public class SO_GameDatabase : ScriptableObject
         _currencyValue += _currencyEarn;
     }
 
-    // Initialization
     public void Initialize()
     {
         _musicBackgroundIndex = 0;
