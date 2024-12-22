@@ -4,9 +4,8 @@
 
 **Game Title:** Man vs. Tsunami  
 **Description:** A thrilling run-and-rescue game where the player must outrun a massive tsunami, save cats along the way, navigate obstacles, and reach the finish line. 
-Download the APK here: https://drive.google.com/file/d/1wiQbr707xugsF56WTz9hr-czcw13Dwc4/view?usp=sharing
 ---
-
+* Download built apk here (Min SDK 27): https://drive.google.com/file/d/1-CfP4wfvJQUzV8L-xC-0Gf-yEdsp8F3Q/view?usp=drive_link
 ## Key Features
 
 1. **Upgrade Player Speed:**
