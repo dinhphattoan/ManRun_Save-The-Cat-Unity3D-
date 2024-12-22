@@ -47,17 +47,7 @@ ExportedObj/
 *.opendb
 *.VC.db
 
-*.psd 
-*.psd.zip
-*.unitypackage
-*.fbx 
-*.obj 
-*.blend
-*.wav 
-*.mp3
-*.ogg 
-*.mov 
-*.avi
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
