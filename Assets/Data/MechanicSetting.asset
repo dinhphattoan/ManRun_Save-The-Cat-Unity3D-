@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: MechanicSetting
   m_EditorClassIdentifier: 
   gameDatabase: {fileID: 11400000, guid: 4623d7cc0470840488ba9c01a9d4dc85, type: 2}
-  playerEnergyBar: 100
-  tempAdditionalMaxSpeed: 0
-  moveSpeed: 0.0000065358936
-  maxMoveSpeed: 10
-  moveSpeedLerpSpeed: 1.7
-  tsunamiMoveSpeed: 10
+  _playerEnergyBar: 100
+  _tempAdditionalMaxSpeed: 0
+  _moveSpeed: 0
+  _maxMoveSpeed: 10
+  _moveSpeedLerpSpeed: 7
+  _rotationSpeed: 9
+  _tsunamiMoveSpeed: 10
   SpawnRadius: 20
   PickupTime: 1.02
   MaxDelayWalkingRoutine: 3
   Subdivisions: 10
   HoverAngle: 120
   HoverDistance: 15
-  eneryRecoverPerSecond: 10
-  energyMaxTempEarn: 0.2
-  costEnergyPerSpeed: 12
+  _eneryRecoverPerSecond: 10
+  _energyMaxTempEarn: 0.2
+  _costEnergyPerSpeed: 12

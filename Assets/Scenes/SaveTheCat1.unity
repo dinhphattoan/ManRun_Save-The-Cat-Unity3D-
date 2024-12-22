@@ -1091,42 +1091,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366ebeec440d9544c8876a77aadc48b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PLAYER_SPAWN_POINT: {fileID: 1076750095}
-  TSUNAMI_SPAWN_POINT: {fileID: 1392018688}
-  envHolder: {fileID: 1927671190}
-  catSpawnerHolder: {fileID: 963643256}
-  probHolder: {fileID: 106184423}
-  roadHolder: {fileID: 1415356620}
-  roadNavMeshSurface: {fileID: 1415356621}
-  tsunamiLevels:
-  - levelName: Begin
-    speed: 10
-    triggerTransform: {fileID: 1392018688}
-  - levelName: Finish1
-    speed: 40
-    triggerTransform: {fileID: 96961222}
-  - levelName: Finish2
-    speed: 60
-    triggerTransform: {fileID: 1665772235}
-  catSpawners:
+  PlayerSpawnPoint: {fileID: 1076750095}
+  TsunamiSpawnPoint: {fileID: 1392018688}
+  EnvHolder: {fileID: 428351930}
+  CatSpawnerHolder: {fileID: 963643256}
+  ProbHolder: {fileID: 106184423}
+  RoadHolder: {fileID: 1415356620}
+  RoadNavMeshSurface: {fileID: 1415356621}
+  TsunamiLevels:
+  - LevelName: Startup
+    Speed: 10
+    TriggerTransform: {fileID: 1392018688}
+  CatSpawners:
   - {fileID: 1919462003}
   - {fileID: 136590372}
   - {fileID: 834738174}
   - {fileID: 1748326979}
   - {fileID: 1789152099}
   - {fileID: 189757474}
-  probObjects:
+  ProbObjects:
   - {fileID: 873697452}
   - {fileID: 8681171449023536707}
   - {fileID: 3207801743089564224}
-  finishTransforms:
+  FinishTransforms:
   - {fileID: 96961222}
   - {fileID: 1665772235}
-  numberOfRoad: 5
-  numberOfCatSpawner: 5
-  numberOfProb: 5
-  numberOfSampling: 10
-  spawnedCatHolder: {fileID: 991129708}
+  NumberOfRoads: 10
+  NumberOfCatSpawners: 6
+  NumberOfProb: 4
+  NumberOfSampling: 10
+  SpawnedCatHolder: {fileID: 1927671190}
 --- !u!1 &320127325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,8 +1340,8 @@ MonoBehaviour:
   - CarPrefab: {fileID: 1631077011919486204}
     TransformEventTrigger: {fileID: 8952902714621896792}
     SplineContainer: {fileID: 3967590769367909470}
-    ColorTransformTrigger: {r: 0, g: 0, b: 0, a: 0}
     nameEvent: Car prob event 1
+    isTriggered: 0
   navSpeed: 0.13
 --- !u!4 &412147076
 Transform:

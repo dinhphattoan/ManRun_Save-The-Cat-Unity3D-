@@ -4,22 +4,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MechanicSetting", menuName = "SO/MechanicSetting")]
 public class SO_MechanicSetting : ScriptableObject
 {
+    [Header("Game Database")]
     public SO_GameDatabase gameDatabase;
+
     [Header("Player Settings")]
     [Range(0, 100)]
-    [SerializeField] int playerEnergyBar;
-    [SerializeField] float tempAdditionalMaxSpeed = 0f;
-    [SerializeField] private float moveSpeed = 0f;
-    [SerializeField] private float maxMoveSpeed = 8f;
-    [SerializeField] private float moveSpeedLerpSpeed = 5f;
-    public float MaxMoveSpeed { get { return maxMoveSpeed; } }
-    public float MoveSpeed { get { return moveSpeed; } }
-    public float MoveSpeedLerpSpeed { get { return moveSpeedLerpSpeed; } }
-    public float RotationSpeed { get; private set; }
-    [Space]
+    [SerializeField] private int _playerEnergyBar = 100;
+    [SerializeField] private float _tempAdditionalMaxSpeed = 0f;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _maxMoveSpeed = 8f;
+    [SerializeField] private float _moveSpeedLerpSpeed = 5f;
+    [SerializeField] private float _rotationSpeed = 9f; 
+
     [Header("Tsunami Settings")]
-    [SerializeField] private float tsunamiMoveSpeed = 0f;
-    public float TsunamiMoveSpeed { get { return tsunamiMoveSpeed; } }
+    [SerializeField] private float _tsunamiMoveSpeed = 10f;
 
     [Header("Cat")]
     [Space(10)]
@@ -33,58 +31,63 @@ public class SO_MechanicSetting : ScriptableObject
     public int HoverAngle;
     public float HoverDistance;
 
-    // [Header("Initial")]
-    // [Space(10)]
-    // [SerializeField] private int initialSecondsPerTile = 5;
-    // [SerializeField] private Renderer tileRenderer;
-
     [Header("Trade Value")]
-    [SerializeField] int eneryRecoverPerSecond = 10;
-    [SerializeField] private float energyMaxTempEarn = 0.2f;
-    [SerializeField] int costEnergyPerSpeed = 12;
+    [SerializeField] private int _eneryRecoverPerSecond = 10;
+    [SerializeField] private float _energyMaxTempEarn = 0.2f;
+    [SerializeField] private int _costEnergyPerSpeed = 12;
 
-    public int PlayerEnergyBar { get => playerEnergyBar; }
+    // Properties
+    public int PlayerEnergyBar => _playerEnergyBar;
+    public float MaxMoveSpeed => _maxMoveSpeed;
+    public float MoveSpeed => _moveSpeed;
+    public float MoveSpeedLerpSpeed => _moveSpeedLerpSpeed;
+    public float RotationSpeed => _rotationSpeed;
+    public float TsunamiMoveSpeed => _tsunamiMoveSpeed;
+
+    // Initialization
     public void Initialize()
     {
-        //Intial max movement speed that takes into account the tile size (same with Tsunami)
-        //Player need to have higher based speed in order to make progress
-        RotationSpeed = 9f;
-        playerEnergyBar = 100;
-        tempAdditionalMaxSpeed=0f;
-        tsunamiMoveSpeed=10f;
+        _playerEnergyBar = 100;
+        _tempAdditionalMaxSpeed = 0f;
+        _tsunamiMoveSpeed=10f;
     }
+
+    // Energy Management
     public void TradeTempEnergyPerMaxSpeed()
     {
-        playerEnergyBar -= costEnergyPerSpeed;
-        tempAdditionalMaxSpeed += energyMaxTempEarn;
+        _playerEnergyBar -= _costEnergyPerSpeed;
+        _tempAdditionalMaxSpeed += _energyMaxTempEarn;
+        ClampPlayerEnergy();
     }
+
     public void RecoverPlayerEnergy()
     {
-        playerEnergyBar += eneryRecoverPerSecond;
+        _playerEnergyBar += _eneryRecoverPerSecond;
+        ClampPlayerEnergy();
     }
+
+    private void ClampPlayerEnergy()
+    {
+        _playerEnergyBar = Mathf.Clamp(_playerEnergyBar, 0, 100); 
+    }
+
+    // Move Speed Handling
     public void LerpMoveSpeed(bool isIncrement)
     {
-        if (isIncrement)
-        {
-            moveSpeed =
-                    Mathf.Lerp(moveSpeed, isIncrement ?
-                    (maxMoveSpeed + tempAdditionalMaxSpeed + gameDatabase.MaxSpeedAdditionalStored) : 0,
-                    Time.deltaTime * moveSpeedLerpSpeed);
-        }
-        else
-        {
-            moveSpeed =
-        Mathf.Lerp(moveSpeed, 0, Time.deltaTime * moveSpeedLerpSpeed);
-        }
-
+        _moveSpeed = Mathf.Lerp(
+            _moveSpeed, 
+            isIncrement ? 
+                (_maxMoveSpeed + _tempAdditionalMaxSpeed + gameDatabase.MaxSpeedAdditionalStored) : 
+                0, 
+            Time.deltaTime * _moveSpeedLerpSpeed);
     }
-    public void DifficulityScale(float scale)
-    {
 
-    }
+    // Difficulty Scaling (Placeholder)
+    public void DifficulityScale(float scale) { } 
+
+    // Tsunami Level Setting
     public void SetTsunamiLevel(TsunamiLevel tsunamiLevel)
     {
-        tsunamiMoveSpeed = tsunamiLevel.speed;
-
+        _tsunamiMoveSpeed = tsunamiLevel.Speed;
     }
 }

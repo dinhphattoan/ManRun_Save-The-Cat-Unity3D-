@@ -6,79 +6,65 @@ using UnityEngine;
 
 public class LevelSetting : MonoBehaviour
 {
-    public Transform pivot => transform;
-    public int numRoads;
-    public int numCatSpawner;
-    public int numProb;
-    public int numSample;
+    public Transform Transform { get; private set; } // Use property for transform
+    public int NumberOfRoads;
+    public int NumberOfCatSpawners;
+    public int NumberOfProb;
+    public int NumberOfSamples;
+
     [Range(0, 1f)]
-    [Tooltip("Higher the scale generate more prob on road, this will cause computational expenses")]
-    public float difficulityScale;
-    public NavMeshSurface navMeshSurface;
-    public TsunamiLevel[] tsunamiLevels;
+    [Tooltip("Higher the scale generates more prob on road, this will cause computational expenses")]
+    public float DifficultyScale;
 
-    public Transform catParent;
-    public Transform roadParent;
-    public Transform probParent;
-    public Transform envParent;
-    public Transform finishLineTransform;
-    public Transform playerSpawnPoint;
-    public Transform tsunamiSpawnPoint;
-    public Transform spawnedCatHolder;
-    public void ClearChildren()
-    {
-        ProceduralLevel.ClearChildren(catParent);
-        ProceduralLevel.ClearChildren(roadParent);
-        ProceduralLevel.ClearChildren(probParent);
-        ProceduralLevel.ClearChildren(envParent);
-    }
+    public NavMeshSurface NavMeshSurface;
+    public TsunamiLevel[] TsunamiLevels;
 
-
-    public void DifficulityScale(float roadLength, SO_MechanicSetting sO_MechanicSetting)
-    {
-        float roadTotalLength = numRoads * roadLength;
-        //Each 50m of road has 1 prob at hardless level, make it more difficult to navigate
-        numProb = (int)(roadTotalLength / (difficulityScale == 0 ? 50f : 50f - (40f * difficulityScale)));
-
-        // numCatSpawner = (int)(roadTotalLength/ (difficulityScale == 0 ? 100f : 100f - (50f * difficulityScale)));
-        numSample = ((int)roadTotalLength) / 10;
-        TsunamiLevelMeasurement(numRoads, numRoads * roadLength, sO_MechanicSetting);
-    }
+    public Transform CatParent;
+    public Transform RoadParent;
+    public Transform ProbParent;
+    public Transform EnvParent;
+    public Transform FinishLineTransform;
+    public Transform PlayerSpawnPoint;
+    public Transform TsunamiSpawnPoint;
+    public Transform SpawnedCatHolder;
+    public Transform Pivot => transform;
     /// <summary>
-    /// Higher the scale, tsunami will likely catchup.
-    ///  Tsunami will update it's speed more fluently and depend on the distance speed from tsunami and players, 
-    ///  Player have to less time to pickup and have to maintain the navigation through the prob more efficiently and optimized.
+    /// This method is used to calculate the difficulty scale, higher the difficulty scale, more probs on road and faster tsunami speed update
     /// </summary>
-    /// <param name="numRoads"></param>
     /// <param name="roadLength"></param>
-    /// <param name="sO_MechanicSetting"></param>
-    void TsunamiLevelMeasurement(int numRoads, float roadLength, SO_MechanicSetting sO_MechanicSetting)
+    public void CalculateDifficultyScale(float roadLength)
     {
-        for (int i = 1; i < tsunamiLevels.Length; i++)
-        {
-            DestroyImmediate(tsunamiLevels[i].triggerTransform.gameObject);
+        float roadTotalLength = NumberOfRoads * roadLength;
+        // Each 50m of road has 1 prob at hardest level, adjust based on difficulty
+        NumberOfProb = Mathf.Clamp((int)(roadTotalLength / (50f - (40f * DifficultyScale))), 0, int.MaxValue);
 
-        }
-        TsunamiLevel temp = tsunamiLevels[0];
-        List<TsunamiLevel> _tsunamiLevel = new List<TsunamiLevel>();
-        _tsunamiLevel.Add(temp);
-        tsunamiLevels[0] = temp;
-        //More harder makes tsunami update it's speed more fluently
-        Transform trigger = _tsunamiLevel[0].triggerTransform;
-        float meterPerUpdate = 500; //Default level update per distance
-        meterPerUpdate -= meterPerUpdate * (difficulityScale/1.5f);
+
+        NumberOfSamples = (int)roadTotalLength / 10;
+        AdjustTsunamiLevels(roadTotalLength);
+    }
+
+    public void AdjustTsunamiLevels(float roadLength)
+    {
+        List<TsunamiLevel> tsunamiLevels = new List<TsunamiLevel>
+        {
+            TsunamiLevels[0] // Keep the first level
+        };
+
+        float meterPerUpdate = 500f; // Base update distance
+        meterPerUpdate -= meterPerUpdate * (DifficultyScale / 1.5f);
+
         for (int i = 1; i < roadLength / meterPerUpdate; i++)
         {
-            TsunamiLevel tsunamiLevel = new TsunamiLevel();
-            float speedUpdate = _tsunamiLevel[i - 1].speed + _tsunamiLevel[i - 1].speed * difficulityScale/1.5f;
-            tsunamiLevel.triggerTransform = Instantiate(trigger, trigger.parent);
-            tsunamiLevel.triggerTransform.name = $"Tsunami Speed: " + speedUpdate;
-            tsunamiLevel.speed = speedUpdate;
-            tsunamiLevel.levelName = "Level " + i;
-            tsunamiLevel.triggerTransform.position = new Vector3(trigger.position.x, 0, trigger.parent.position.z + meterPerUpdate * i);
-            _tsunamiLevel.Add(tsunamiLevel);
+            TsunamiLevel level = new TsunamiLevel();
+            float speedUpdate = tsunamiLevels[i - 1].Speed + tsunamiLevels[i - 1].Speed * DifficultyScale / 1.5f;
+            level.TriggerTransform = Instantiate(TsunamiLevels[0].TriggerTransform, TsunamiLevels[0].TriggerTransform.parent);
+            level.TriggerTransform.name = $"Tsunami Speed: {speedUpdate}";
+            level.Speed = speedUpdate;
+            level.LevelName = $"Level {i}";
+            level.TriggerTransform.position = new Vector3(TsunamiLevels[0].TriggerTransform.position.x, 0, TsunamiLevels[0].TriggerTransform.parent.position.z + meterPerUpdate * i);
+            tsunamiLevels.Add(level);
         }
-        tsunamiLevels = _tsunamiLevel.ToArray();
 
+        TsunamiLevels = tsunamiLevels.ToArray();
     }
 }

@@ -3,22 +3,20 @@ using UnityEngine.UI;
 
 public class CatUIHub : MonoBehaviour
 {
-    [SerializeField] private CatBehavior catBehavior;
+    [SerializeField] private CatBehavior catBehaviorScript;
     [SerializeField] private SO_MechanicSetting mechanicSetting;
-    [SerializeField] private Transform barkUI;
-    [SerializeField] private Transform sliderUI;
+    [SerializeField] private Transform catMeowUITransform;
+    [SerializeField] private Transform pickupSliderUITransform;
 
-    private Slider slider;
-    private Transform playerTransform;
+    private Slider pickupSlider;
     private Transform uiHubTransform;
 
     private void Start()
     {
-        slider = sliderUI.GetComponent<Slider>();
+        pickupSlider = pickupSliderUITransform.GetComponent<Slider>();
         uiHubTransform = transform;
-        playerTransform = GameObject.FindWithTag("Player").transform;
 
-        sliderUI.gameObject.SetActive(false);
+        pickupSliderUITransform.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -29,16 +27,16 @@ public class CatUIHub : MonoBehaviour
 
     private void HandleUI()
     {
-        if (catBehavior.PickupTimeCounter > 0)
+        if (catBehaviorScript.PickupTimeCounter > 0)
         {
-            barkUI.gameObject.SetActive(false);
-            sliderUI.gameObject.SetActive(true);
-            slider.value = catBehavior.PickupTimeCounter / mechanicSetting.PickupTime;
+            catMeowUITransform.gameObject.SetActive(false);
+            pickupSliderUITransform.gameObject.SetActive(true);
+            pickupSlider.value = catBehaviorScript.PickupTimeCounter / mechanicSetting.PickupTime;
         }
         else
         {
-            barkUI.gameObject.SetActive(true);
-            sliderUI.gameObject.SetActive(false);
+            catMeowUITransform.gameObject.SetActive(true);
+            pickupSliderUITransform.gameObject.SetActive(false);
         }
     }
 

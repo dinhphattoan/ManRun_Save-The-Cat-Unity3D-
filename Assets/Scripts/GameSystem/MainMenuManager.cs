@@ -142,8 +142,8 @@ public class MainMenuManager : MonoBehaviour
         float difficultyValue = difficultySlider.value;
         float catValue = catSlider.value;
         LevelSetting levelSetting = proceduralLevel.LevelPrefab.GetComponent<LevelSetting>();
-        levelSetting.numCatSpawner = (int)catValue;
-        levelSetting.difficulityScale = difficultyValue / 10f;
+        levelSetting.NumberOfCatSpawners = (int)catValue;
+        levelSetting.DifficultyScale = difficultyValue / 10f;
 
         LevelManager levelManager = proceduralLevel.Initialize(1)[0].GetComponent<LevelManager>();
         levelManager.Initialize();
@@ -160,7 +160,7 @@ public class MainMenuManager : MonoBehaviour
         asyncOperation.allowSceneActivation = true;
         while (asyncOperation.progress >= 0.9f)
         {
-            uiCover.slideLoading.value = asyncOperation.progress;
+            uiCover.loadingSliderUI.value = asyncOperation.progress;
 
             yield return null;
         }

@@ -65,7 +65,7 @@ namespace GameMechanic
         private bool isEnergyRecovering = false;
         private float timeWaitRecoverCounter = 0f;
         private bool isRestart = false;
-        private int nSavedCat => levelManager.catSpawners.Count - spawnedCats.Count;
+        private int nSavedCat => levelManager.CatSpawners.Count - spawnedCats.Count;
         private int tsunamiLevelIndex = 0;
         private void OnEnable()
         {
@@ -80,8 +80,8 @@ namespace GameMechanic
         {
             if (!isRestart)
             {
-                playerTransform = Instantiate(playerPrefab, levelManager.PLAYER_SPAWN_POINT.position, Quaternion.identity).transform;
-                tsunamiTransform = Instantiate(tsunamiPrefab, levelManager.TSUNAMI_SPAWN_POINT.position, Quaternion.identity).transform;
+                playerTransform = Instantiate(playerPrefab, levelManager.PlayerSpawnPoint.position, Quaternion.identity).transform;
+                tsunamiTransform = Instantiate(tsunamiPrefab, levelManager.TsunamiSpawnPoint.position, Quaternion.identity).transform;
 
 
                 DontDestroyOnLoad(playerTransform.gameObject);
@@ -108,9 +108,9 @@ namespace GameMechanic
         }
         private void SpawnAnimals()
         {
-            foreach (var spawner in levelManager.catSpawners)
+            foreach (var spawner in levelManager.CatSpawners)
             {
-                spawnedCats.Add(spawner.GetComponent<CatSpawner>().SpawnCat(levelManager.spawnedCatHolder));
+                spawnedCats.Add(spawner.GetComponent<CatSpawner>().SpawnCat(levelManager.SpawnedCatHolder));
 
             }
         }
@@ -162,11 +162,11 @@ namespace GameMechanic
         }
         public void TsunamiRuntimeLevel()
         {
-            if (levelManager.tsunamiLevels.Length > 0 && levelManager.tsunamiLevels.Length > tsunamiLevelIndex)
+            if (levelManager.TsunamiLevels.Length > 0 && levelManager.TsunamiLevels.Length > tsunamiLevelIndex)
             {
-                if (levelManager.tsunamiLevels[tsunamiLevelIndex].IsReached(tsunamiTransform))
+                if (levelManager.TsunamiLevels[tsunamiLevelIndex].IsReached(tsunamiTransform))
                 {
-                    mechanicSetting.SetTsunamiLevel(levelManager.tsunamiLevels[tsunamiLevelIndex++]);
+                    mechanicSetting.SetTsunamiLevel(levelManager.TsunamiLevels[tsunamiLevelIndex++]);
                 }
             }
         }
@@ -223,7 +223,7 @@ namespace GameMechanic
             if (proceduralLevel.levelSettingTransforms.Length > 0)
             {
                 LevelSetting levelSetting = proceduralLevel.levelSettingTransforms[0].GetComponent<LevelSetting>();
-                multiplier += levelSetting.difficulityScale;
+                multiplier += levelSetting.DifficultyScale;
             }
             difficultyText.text = "x" + multiplier.ToString("0.0") + "difficulty";
             int earnresult = (int)(nSavedCat * 10f * multiplier) + additionalCoinEarn;
@@ -273,7 +273,7 @@ namespace GameMechanic
         {
             cameraController.Initialize();
             cameraController.Camera_GameStart();
-            FinishLineTransform = levelManager.finishTransforms[0];
+            FinishLineTransform = levelManager.FinishTransforms[0];
             yield return new WaitUntil(() => !cameraController.IsInTransistion);
             StartCoroutine(CountingCountingDownStart());
         }
@@ -308,7 +308,7 @@ namespace GameMechanic
                 asyncOperation.allowSceneActivation = false;
                 while (asyncOperation.progress < 1f)
                 {
-                    uiCover.slideLoading.value = asyncOperation.progress;
+                    uiCover.loadingSliderUI.value = asyncOperation.progress;
                     yield return null;
                 }
             }
@@ -338,6 +338,7 @@ namespace GameMechanic
                 StartCoroutine(uiCover.FadeIn());
                 yield return new WaitUntil(() => !uiCover.IsInTransition);
                 levelManager.RandomizeLevel();
+                mechanicSetting.Initialize();
                 yield return new WaitUntil(() => !levelManager.IsProcess);
                 isRestart = false;
                 Initialize();
@@ -357,12 +358,13 @@ namespace GameMechanic
     [System.Serializable]
     public struct TsunamiLevel
     {
-        public string levelName;
-        public float speed;
-        public Transform triggerTransform;
+        public string LevelName;
+        public float Speed;
+        public Transform TriggerTransform;
+
         public bool IsReached(Transform input)
         {
-            return input.position.z >= triggerTransform.position.z;
+            return input.position.z >= TriggerTransform.position.z;
         }
     }
 }

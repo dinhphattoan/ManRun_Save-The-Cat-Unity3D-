@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class UICover : MonoBehaviour
 {
     [Header("Canvas")]
-    [SerializeField] private Canvas rootCanvas;
-    [SerializeField] private CanvasGroup canvasGroup;
-    public Slider slideLoading;
-    private Transform uiCoverTransform;
+    [SerializeField] private CanvasGroup coverUICanvasGroup;
+    public Slider loadingSliderUI;
+    private Transform coverUITransform;
 
     [Header("Loading settings")]
     private bool isInTransistion;
@@ -20,7 +19,7 @@ public class UICover : MonoBehaviour
     float t = 0f;
     public void Initialize()
     {
-        uiCoverTransform = transform;
+        coverUITransform = transform;
         isInTransistion = false;
     }
     #region Transistion
@@ -36,11 +35,11 @@ public class UICover : MonoBehaviour
         while (elapsedTime < fadeDuration)
         {
             t = elapsedTime / fadeDuration;
-            canvasGroup.alpha = Mathf.Lerp(0, 1, t);
+            coverUICanvasGroup.alpha = Mathf.Lerp(0, 1, t);
 
             // Calculate overall progress, including fade-in and load durations
             float totalDuration = fadeDuration + loadDuration;
-            slideLoading.value = elapsedTime / totalDuration;
+            loadingSliderUI.value = elapsedTime / totalDuration;
 
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -56,12 +55,12 @@ public class UICover : MonoBehaviour
         while (elapsedTime < fadeDuration)
         {
             t = elapsedTime / fadeDuration;
-            canvasGroup.alpha = Mathf.Lerp(1, 0, t);
+            coverUICanvasGroup.alpha = Mathf.Lerp(1, 0, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         isInTransistion = false;
-        uiCoverTransform.gameObject.SetActive(false);
+        coverUITransform.gameObject.SetActive(false);
     }
     #endregion
 

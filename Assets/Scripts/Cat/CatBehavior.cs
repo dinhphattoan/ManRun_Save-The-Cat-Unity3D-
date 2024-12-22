@@ -84,7 +84,7 @@ public class CatBehavior : MonoBehaviour
 
     public Vector2 GetTargetPosition()
     {
-        Vector2 randomOffset = Random.insideUnitCircle * animalDatabase.WalkDistanceRadius;
+        Vector2 randomOffset = Random.insideUnitCircle * animalDatabase.CatWalkDistanceRadius;
         return randomOffset + new Vector2(transform.position.x, transform.position.z);
     }
 
@@ -96,10 +96,10 @@ public class CatBehavior : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1f, mechanicSetting.MaxDelayWalkingRoutine));
             if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance && !forceNavPoint)
             {
-                if (RandomPoint(transform.position, animalDatabase.WalkDistanceRadius, out targetNavPoint))
+                if (RandomPoint(transform.position, animalDatabase.CatWalkDistanceRadius, out targetNavPoint))
                 {
                     saveTargetNavPoint = targetNavPoint;
-                    navMeshAgent.speed = animalDatabase.WalkSpeed;
+                    navMeshAgent.speed = animalDatabase.CatWalkSpeed;
                     navMeshAgent.SetDestination(targetNavPoint);
                     RandomBarkRoutine();
                 }
@@ -193,7 +193,7 @@ public class CatBehavior : MonoBehaviour
             if (!isPicked)
             {
                 navMeshAgent.SetDestination(saveTargetNavPoint);
-                navMeshAgent.speed = animalDatabase.WalkSpeed;
+                navMeshAgent.speed = animalDatabase.CatWalkSpeed;
                 PickupTimeCounter = 0;
 
             }

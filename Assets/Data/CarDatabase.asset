@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31c99ef60c231e46b826e0e7ac4307c, type: 3}
   m_Name: CarDatabase
   m_EditorClassIdentifier: 
-  CarPrefabs:
+  _carPrefabs:
+  - {fileID: 642077306542760557, guid: 441009b399eb27745b28b269eae19353, type: 3}
   - {fileID: 1993465034890879106, guid: a82551b99fe4a614088d010e7d26593c, type: 3}
   - {fileID: 6716841210232206052, guid: 1cf250488defb6148927834d8a91369d, type: 3}
-  - {fileID: 642077306542760557, guid: 441009b399eb27745b28b269eae19353, type: 3}
   - {fileID: 6716841210232206052, guid: 0830444d25366d14ab3ec486d75bd608, type: 3}
-  carMaterials:
+  _carMaterials:
   - {fileID: 2100000, guid: c9874d5f433314a4fb96efdcc5c27b98, type: 2}
   - {fileID: 2100000, guid: d2decc24b05c6d541958402e13ed9104, type: 2}
   - {fileID: 2100000, guid: 8e86935c824485442b34a4224129e94c, type: 2}
@@ -38,3 +38,14 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 0dffa260f92a15048ba88f90cb809dcc, type: 2}
   - {fileID: 2100000, guid: 18adc75eeeb75394c87c6cbf512cb333, type: 2}
   - {fileID: 2100000, guid: 8e03d9f90d589c848b51b66e3d5f94c1, type: 2}
+  - {fileID: 2100000, guid: 5471c7ed3042e004da9271f8bfe6652a, type: 2}
+  - {fileID: 2100000, guid: 438922dd116fe4f4da7f7fa0d8b69f02, type: 2}
+  - {fileID: 2100000, guid: 42543d1f061f3544893d50c3353a38e5, type: 2}
+  - {fileID: 2100000, guid: 901f0d6c589dde44a89085c0f6af7ba3, type: 2}
+  - {fileID: 2100000, guid: e0154d200306e024e98edaa046ff86aa, type: 2}
+  - {fileID: 2100000, guid: 9bd69ac7dfee0f54db15af16e1f600b2, type: 2}
+  - {fileID: 2100000, guid: 1185ee8ddda82104ab0c740da799780d, type: 2}
+  - {fileID: 2100000, guid: 08a86e9f073b9c14f8db1ee3c8a96f21, type: 2}
+  - {fileID: 2100000, guid: da615bd16d187854c8e00b7a1350027d, type: 2}
+  - {fileID: 2100000, guid: 7f48f1198207ddb47a750a59bf881905, type: 2}
+  - {fileID: 2100000, guid: 17dccca1ca29ac14b8eb65d42eb155ed, type: 2}

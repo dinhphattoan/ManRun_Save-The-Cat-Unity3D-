@@ -96,37 +96,6 @@ public class PlayerBehavior : MonoBehaviour
         return prevCat;
 
     }
-    // private void HandleCatTailFollow()
-    // {
-    //     if (catTails.Count > 0)
-    //     {
-    //         Vector3 tailPosition =
-    //         (playerTransform.position - catTails[0].transform.position).normalized;
-    //         catTails[0].transform.rotation =
-    //         Quaternion.Lerp(catTails[0].transform.rotation, Quaternion.LookRotation(tailPosition), Time.deltaTime * playerSetting.MoveSpeed);
-
-    //         if (Vector3.Distance(playerTransform.position, catTails[0].transform.position) <= catTailGap * 2f)
-    //             tailPosition = Vector3.zero;
-
-    //         catTails[0].transform.position = Vector3.Lerp(catTails[0].transform.position, catTails[0].transform.position + tailPosition, Time.deltaTime * playerSetting.MoveSpeed);
-
-    //         //Continues to tail the others
-    //         for (int i = 1; i < catTails.Count; i++)
-    //         {
-    //             Transform prevCatTransform = catTails[i - 1].transform;
-    //             Transform currCatTransform = catTails[i].transform;
-
-    //             tailPosition = (prevCatTransform.position - currCatTransform.position).normalized;
-    //             currCatTransform.rotation =
-    //              Quaternion.Lerp(currCatTransform.rotation, Quaternion.LookRotation(tailPosition), Time.deltaTime * playerSetting.MoveSpeed);
-
-    //             if (Vector3.Distance(prevCatTransform.position, catTails[i].transform.position) <= catTailGap)
-    //                 tailPosition = Vector3.zero;
-
-    //             currCatTransform.position = Vector3.Lerp(currCatTransform.position, currCatTransform.position + tailPosition, Time.deltaTime * playerSetting.MoveSpeed);
-    //         }
-    //     }
-    // }
     private void GetNextPickupDirectionPoint()
     {
         Transform nearestCat = GetNearestCatTransform();

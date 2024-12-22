@@ -5,13 +5,12 @@ public class SoundController : MonoBehaviour
 {
     [SerializeField] private SO_GameDatabase gameDatabase;
     [SerializeField] private AudioSource backgroundAudioSource;
-    [SerializeField] private List<AudioSource> activeAudioSource = new();
     List<AudioSource> sfxPoolAudioSource = new();
     [SerializeField] Transform audioPoolHolder;
     [SerializeField] int audioPoolSize = 5;
     public void Initialize()
     {
-        backgroundAudioSource.clip = gameDatabase.NextBackgroundAudioClip();
+        backgroundAudioSource.clip = gameDatabase.PlayBackgroundClip();
         backgroundAudioSource.Play();
 
     }
@@ -23,17 +22,27 @@ public class SoundController : MonoBehaviour
     {
         if (!backgroundAudioSource.isPlaying)
         {
-            backgroundAudioSource.clip = gameDatabase.NextBackgroundAudioClip();
+            backgroundAudioSource.clip = gameDatabase.NextMusicClip(backgroundAudioSource.clip);
             backgroundAudioSource.Play();
         }
 
     }
 
-    public void PlayNextBackgroundMusic()
+    public void PlayInGameMusic()
     {
-        backgroundAudioSource.clip = gameDatabase.NextBackgroundAudioClip();
+        backgroundAudioSource.clip = gameDatabase.PlayInGameClip();
+        backgroundAudioSource.Play();
     }
-
+    public void PlayBackgroundMusic()
+    {
+        backgroundAudioSource.clip = gameDatabase.PlayBackgroundClip();
+        backgroundAudioSource.Play();
+    }
+    public void NextMusicClip()
+    {
+        backgroundAudioSource.clip = gameDatabase.NextMusicClip(backgroundAudioSource.clip);
+        backgroundAudioSource.Play();
+    }
     public void PlayAudioClip(AudioClip audioClip, float distanceToListener)
     {
         AudioSource audioSource = GetPooledObject();

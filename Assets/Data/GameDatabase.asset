@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64270ebf09ed004d8adf62050e54101, type: 3}
   m_Name: GameDatabase
   m_EditorClassIdentifier: 
-  currencyValue: 110
-  maxSpeedAdditionalStored: 0.9000001
-  costCurrencyPerUpgrade: 50
-  speedPerUpgradeEarn: 0.1
-  currencyEarn: 12
-  musicBackgroundClips:
+  _currencyValue: 150
+  _maxSpeedAdditionalStored: 1.2
+  _costCurrencyPerUpgrade: 50
+  _speedPerUpgradeEarn: 0.2
+  _currencyEarn: 12
+  _musicBackgroundClips:
   - {fileID: 8300000, guid: c0f6d7988056cd44db1ffce71dc2d069, type: 3}
-  - {fileID: 8300000, guid: b832383246b33e54dbe39f70b1dfe7fb, type: 3}
   - {fileID: 8300000, guid: f2629805d2f4e524bbdcc9d04f76fce1, type: 3}
-  upgradeClip: {fileID: 8300000, guid: 548e16ea0bea09f43895ec968aff620d, type: 3}
-  buttonClickClip: {fileID: 8300000, guid: 047bbb614aba7704fa73823056d8ceba, type: 3}
-  pickupSound: {fileID: 8300000, guid: 1aa41b0ccd6222b4d8660140a425ddf7, type: 3}
-  placeSound: {fileID: 8300000, guid: 106d0bf09cc817841854abe0b0677363, type: 3}
-  stepLeft: []
-  stepRight: []
+  _musicInGameClips:
+  - {fileID: 8300000, guid: b832383246b33e54dbe39f70b1dfe7fb, type: 3}
+  _upgradeClip: {fileID: 8300000, guid: 91d92aa5f0f0c6e48ae0239594b2cd4a, type: 3}
+  _buttonClickClip: {fileID: 8300000, guid: 047bbb614aba7704fa73823056d8ceba, type: 3}
+  _pickupSound: {fileID: 8300000, guid: 106d0bf09cc817841854abe0b0677363, type: 3}
+  _placeSound: {fileID: 8300000, guid: 106d0bf09cc817841854abe0b0677363, type: 3}

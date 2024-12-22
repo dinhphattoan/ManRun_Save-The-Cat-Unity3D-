@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f3779acd904ee42a3f5d1d3229acde, type: 3}
   m_Name: Animal_Database
   m_EditorClassIdentifier: 
-  cats:
-  - prefab: {fileID: 3228665935464363547, guid: ffb6222348d1b7c4780bf16003c0bb04, type: 3}
-    Name: Black one
-    Type: 1
+  _catObjects:
   - prefab: {fileID: 3228665935464363547, guid: 40052035cc041c744b166e10f8ac1289, type: 3}
-    Name: White one
+    Name: White
     Type: 0
-  WalkSpeed: 4
-  WalkDistanceRadius: 30
-  catSounds:
+  - prefab: {fileID: 3228665935464363547, guid: ffb6222348d1b7c4780bf16003c0bb04, type: 3}
+    Name: Black
+    Type: 1
+  CatWalkSpeed: 5
+  CatWalkDistanceRadius: 50
+  _catSounds:
   - {fileID: 8300000, guid: f0b63588ca7d0f34e92e54fcc48d664f, type: 3}
   - {fileID: 8300000, guid: ad00a778d06ecec4abe3b51d4569b244, type: 3}
   - {fileID: 8300000, guid: beac7936f9a9eba4fa17ebf855350db7, type: 3}

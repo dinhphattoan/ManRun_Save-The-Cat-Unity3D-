@@ -23,7 +23,7 @@ public class AutoPlayerController : MonoBehaviour
         speedCounter = Mathf.Lerp(speedCounter, moveSpeed, Time.deltaTime * lerpSpeed);
         moveSpeed = Mathf.Lerp(moveSpeed, 0, Time.deltaTime * lerpSpeed);
         playerTransform.Translate(Vector3.forward * speedCounter * Time.deltaTime);
-        playerAnimator.SetFloat("Movement Multiplier", (speedCounter / 200f));
+        playerAnimator.SetFloat("Movement Multiplier", speedCounter / 200f);
     }
     public void HandleTapEnergy()
     {

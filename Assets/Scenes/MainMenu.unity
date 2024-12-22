@@ -9157,9 +9157,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1084133993}
     - target: {fileID: 8722417450704370948, guid: 8cb22b4b5cfea9846924659a0d9f3050, type: 3}
+      propertyPath: loadingSliderUI
+      value: 
+      objectReference: {fileID: 1106958489}
+    - target: {fileID: 8722417450704370948, guid: 8cb22b4b5cfea9846924659a0d9f3050, type: 3}
       propertyPath: uiCoverTransform
       value: 
       objectReference: {fileID: 788434603}
+    - target: {fileID: 8722417450704370948, guid: 8cb22b4b5cfea9846924659a0d9f3050, type: 3}
+      propertyPath: coverUICanvasGroup
+      value: 
+      objectReference: {fileID: 1084133993}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10123,7 +10131,7 @@ MonoBehaviour:
   tapUIObjectToPool: {fileID: 1498816020}
   uiMainMainHubTransform: {fileID: 1498816020}
   poolSize: 10
-  proceduralLevel: {fileID: 0}
+  proceduralLevel: {fileID: 1651771452}
   autoPlayerController: {fileID: 3103129740210651265}
   uiCover: {fileID: 1084133992}
   difficultySlider: {fileID: 133670515}
@@ -10509,6 +10517,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8461266304538498995, guid: 8211b4763f0b3e842857668e9b763ceb, type: 3}
   m_PrefabInstance: {fileID: 1088441512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1106958489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 662034679587075537, guid: 8cb22b4b5cfea9846924659a0d9f3050, type: 3}
+  m_PrefabInstance: {fileID: 788434602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1124488848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12503,10 +12522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec0f892084f7d54e800ec758280a58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImage: {fileID: 1498816021}
-  upgradeBtn: {fileID: 242043624}
+  panelImageTappingUpgrade: {fileID: 1498816021}
   mainMenuManager: {fileID: 1080301681}
-  currencyText: {fileID: 116363047}
+  currencyTextShow: {fileID: 116363047}
 --- !u!114 &1498816025
 MonoBehaviour:
   m_ObjectHideFlags: 0

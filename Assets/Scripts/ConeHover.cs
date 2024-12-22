@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConeHover : MonoBehaviour
 {
     [SerializeField] private Material material;
-    [SerializeField] private SO_MechanicSetting playerSetting;
+    [SerializeField] private SO_MechanicSetting mechanicSetting;
 
     private Mesh mesh;
 
@@ -22,14 +22,14 @@ public class ConeHover : MonoBehaviour
 
     private Mesh CreateConeMesh()
     {
-        if (playerSetting.HoverDistance == 0)
+        if (mechanicSetting.HoverDistance == 0)
         {
             Debug.LogError("Hover distance in PlayerSetting is zero!");
             return new Mesh();
         }
 
-        var centerDestination = playerSetting.HoverDistance * transform.parent.forward;
-        var vertices = GenerateRoundEdge(centerDestination, playerSetting.Subdivisions, playerSetting.HoverAngle);
+        var centerDestination = mechanicSetting.HoverDistance * transform.parent.forward;
+        var vertices = GetListRoundVectorEdge(centerDestination, mechanicSetting.Subdivisions, mechanicSetting.HoverAngle);
 
         List<int> triangles = new List<int>();
         List<Vector2> uvs = new List<Vector2>();
@@ -58,16 +58,16 @@ public class ConeHover : MonoBehaviour
             }
         }
 
-        var newMesh = new Mesh();
-        newMesh.vertices = vertices.ToArray();
-        newMesh.triangles = triangles.ToArray();
-        newMesh.uv = uvs.ToArray();
-        newMesh.RecalculateNormals();
+        var newHoverMesh = new Mesh();
+        newHoverMesh.vertices = vertices.ToArray();
+        newHoverMesh.triangles = triangles.ToArray();
+        newHoverMesh.uv = uvs.ToArray();
+        newHoverMesh.RecalculateNormals();
 
-        return newMesh;
+        return newHoverMesh;
     }
 
-    private List<Vector3> GenerateRoundEdge(Vector3 centerDestination, int subdivisions, float sideAngle)
+    private List<Vector3> GetListRoundVectorEdge(Vector3 centerDestination, int subDivisions, float sideAngle)
     {
         if (centerDestination == Vector3.zero)
         {
@@ -75,28 +75,30 @@ public class ConeHover : MonoBehaviour
             return new List<Vector3>();
         }
 
-        float anglePerDivision = sideAngle / subdivisions;
+        float anglePerDivision = sideAngle / subDivisions;
         sideAngle /= 2f;
-        List<Vector3> vertices = new List<Vector3>();
-        vertices.Add(Vector3.zero);
+        List<Vector3> verticesResult = new List<Vector3>
+        {
+            Vector3.zero
+        };
         // First Left side of the edge
-        Quaternion rotationLeft = Quaternion.Euler(0, -sideAngle, 0);
-        Vector3 leftDestination = rotationLeft * centerDestination;
-        vertices.Add(leftDestination);
+        Quaternion eulerLeft = Quaternion.Euler(0, -sideAngle, 0);
+        Vector3 leftEulerVertice = eulerLeft * centerDestination;
+        verticesResult.Add(leftEulerVertice);
 
         // First Right side of the edge
-        Quaternion rotationRight = Quaternion.Euler(0, sideAngle, 0);
-        Vector3 rightDestination = rotationRight * centerDestination;
+        Quaternion eulerRight = Quaternion.Euler(0, sideAngle, 0);
+        Vector3 rightEulerVertice = eulerRight * centerDestination;
 
-        for (int i = 0; i < subdivisions; i++)
+        for (int i = 0; i < subDivisions; i++)
         {
             float angle = anglePerDivision * i;
             Quaternion rotation = Quaternion.Euler(0, angle, 0);
-            Vector3 vertex = rotation * leftDestination;
-            vertices.Add(vertex);
+            Vector3 vertex = rotation * leftEulerVertice;
+            verticesResult.Add(vertex);
         }
 
-        vertices.Add(rightDestination);
-        return vertices;
+        verticesResult.Add(rightEulerVertice);
+        return verticesResult;
     }
 }

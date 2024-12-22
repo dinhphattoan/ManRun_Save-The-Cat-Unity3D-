@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b481a438d1b6e1c46bee7640188dd30d, type: 2}
-  playerSetting: {fileID: 11400000, guid: 73f25aa43ff5fbd46b7d2ee608416451, type: 2}
+  mechanicSetting: {fileID: 11400000, guid: 73f25aa43ff5fbd46b7d2ee608416451, type: 2}
 --- !u!54 &1605127122982771568
 Rigidbody:
   m_ObjectHideFlags: 0

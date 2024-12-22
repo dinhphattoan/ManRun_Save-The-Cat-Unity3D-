@@ -473,7 +473,6 @@ MonoBehaviour:
   mechanicSetting: {fileID: 11400000, guid: 73f25aa43ff5fbd46b7d2ee608416451, type: 2}
   catType: 1
   catUIHub: {fileID: 7897779465262946503}
-  catTailGap: 3
 --- !u!54 &-10694039614629675
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1166,10 +1165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3c733eae61d97459aee96982542f45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  catBehavior: {fileID: 7280557584953742614}
+  catBehaviorScript: {fileID: 7280557584953742614}
   mechanicSetting: {fileID: 11400000, guid: 73f25aa43ff5fbd46b7d2ee608416451, type: 2}
-  barkUI: {fileID: 4410277642734509789}
-  sliderUI: {fileID: 3750032690081974599}
+  catMeowUITransform: {fileID: 4410277642734509789}
+  pickupSliderUITransform: {fileID: 3750032690081974599}
 --- !u!1 &8036866547777894314
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,112 +2,119 @@ using System.Collections.Generic;
 using GameMechanic;
 using Unity.AI.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class LevelManager : MonoBehaviour
 {
     [Header("Transforms")]
-    public Transform PLAYER_SPAWN_POINT;
-    public Transform TSUNAMI_SPAWN_POINT;
-    public Transform envHolder;
-    public Transform catSpawnerHolder = null;
-    public Transform probHolder = null;
-    public Transform roadHolder = null;
-    public NavMeshSurface roadNavMeshSurface = null;
+    public Transform PlayerSpawnPoint;
+    public Transform TsunamiSpawnPoint;
+    public Transform EnvHolder;
+    public Transform CatSpawnerHolder;
+    public Transform ProbHolder;
+    public Transform RoadHolder;
+    public NavMeshSurface RoadNavMeshSurface;
+
     [Space]
-    public TsunamiLevel[] tsunamiLevels;
-    public List<CatSpawner> catSpawners = new List<CatSpawner>();
-    public List<Transform> probObjects = new List<Transform>();
-    public Transform[] finishTransforms;
-    [Header("Level settings")]
-    public int numberOfRoad = 5;
-    public int numberOfCatSpawner = 5;
-    public int numberOfProb = 5;
-    public int numberOfSampling = 10;
-    private bool isProcess = false;
-    public bool IsProcess { get => isProcess; set => isProcess = value; }
+    public TsunamiLevel[] TsunamiLevels;
+    public List<CatSpawner> CatSpawners = new List<CatSpawner>();
+    public List<Transform> ProbObjects = new List<Transform>();
+    public Transform[] FinishTransforms;
+
+    [Header("Level Settings")]
+    public int NumberOfRoads = 5;
+    public int NumberOfCatSpawners = 5;
+    public int NumberOfProb = 5;
+    public int NumberOfSampling = 10;
+    public bool IsProcess { get; private set; }
+
     [Header("Transform Placeholder")]
-    public Transform spawnedCatHolder = null;
+    public Transform SpawnedCatHolder;
+
     private GameManager gameManager;
     private ProceduralLevel proceduralLevel;
+
     private void OnEnable()
     {
         Initialize();
     }
+
     public void Initialize()
     {
         gameManager = FindFirstObjectByType<GameManager>();
-        if (gameManager != null && PLAYER_SPAWN_POINT != null)
+        if (gameManager != null && PlayerSpawnPoint != null)
         {
             proceduralLevel = FindFirstObjectByType<ProceduralLevel>();
-            //Map the level details
             gameManager.LoadLevelData(this);
             gameManager.Initialize();
+            FindFirstObjectByType<SoundController>().PlayInGameMusic();
         }
     }
+
     public void GetSpawnedObject()
     {
-        for (int i = 0; i < probHolder.childCount; i++)
+        foreach (Transform child in ProbHolder)
         {
-            probObjects.Add(probHolder.GetChild(i).transform);
+            ProbObjects.Add(child);
         }
     }
+
     public void AssignLevelSetting(LevelSetting levelSetting)
     {
-        numberOfCatSpawner = levelSetting.numCatSpawner;
-        TSUNAMI_SPAWN_POINT = levelSetting.tsunamiSpawnPoint;
-        PLAYER_SPAWN_POINT = levelSetting.playerSpawnPoint;
-        envHolder = levelSetting.envParent;
-        numberOfProb = levelSetting.numProb;
-        numberOfRoad = levelSetting.numRoads;
-        catSpawnerHolder = levelSetting.catParent;
-        probHolder = levelSetting.probParent;
-        roadHolder = levelSetting.roadParent;
-        roadNavMeshSurface = levelSetting.navMeshSurface;
-        finishTransforms = new Transform[] { levelSetting.finishLineTransform };
-        tsunamiLevels = levelSetting.tsunamiLevels;
-        catSpawners = new List<CatSpawner>();
-        probObjects = new List<Transform>();
-        spawnedCatHolder = levelSetting.spawnedCatHolder;
-        for (int i = 0; i < catSpawnerHolder.childCount; i++)
+        NumberOfCatSpawners = levelSetting.NumberOfCatSpawners;
+        TsunamiSpawnPoint = levelSetting.TsunamiSpawnPoint;
+        PlayerSpawnPoint = levelSetting.PlayerSpawnPoint;
+        EnvHolder = levelSetting.EnvParent;
+        NumberOfProb = levelSetting.NumberOfProb;
+        NumberOfRoads = levelSetting.NumberOfRoads;
+        CatSpawnerHolder = levelSetting.SpawnedCatHolder;
+        ProbHolder = levelSetting.ProbParent;
+        RoadHolder = levelSetting.RoadParent;
+        RoadNavMeshSurface = levelSetting.NavMeshSurface;
+        FinishTransforms = new Transform[] { levelSetting.FinishLineTransform };
+        TsunamiLevels = levelSetting.TsunamiLevels;
+        CatSpawners = new List<CatSpawner>();
+        ProbObjects = new List<Transform>();
+        SpawnedCatHolder = levelSetting.SpawnedCatHolder;
+
+        foreach (Transform child in CatSpawnerHolder)
         {
-            catSpawners.Add(catSpawnerHolder.GetChild(i).GetComponent<CatSpawner>());
+            CatSpawners.Add(child.GetComponent<CatSpawner>());
         }
 
-        for (int i = 0; i < probHolder.childCount; i++)
+        foreach (Transform child in ProbHolder)
         {
-            probObjects.Add(probHolder.GetChild(i).transform);
+            ProbObjects.Add(child);
         }
     }
 
     public void RandomizeLevel()
     {
-        numberOfCatSpawner = (catSpawnerHolder != null) ? catSpawnerHolder.childCount : Random.Range(0, 10);
-        numberOfProb = (probHolder != null) ? probHolder.childCount : Random.Range(0, 10);
-        numberOfRoad = (roadHolder != null) ? roadHolder.childCount : Random.Range(0, 10);
-        ProceduralLevel.ClearChildren(probHolder);
-        ProceduralLevel.ClearChildren(catSpawnerHolder);
-        ProceduralLevel.ClearChildren(spawnedCatHolder);
-        catSpawners.Clear();
-        probObjects.Clear();
+        NumberOfCatSpawners = CatSpawnerHolder != null ? CatSpawnerHolder.childCount : Random.Range(0, 10);
+        NumberOfProb = ProbHolder != null ? ProbHolder.childCount : Random.Range(0, 10);
+        NumberOfRoads = RoadHolder != null ? RoadHolder.childCount : Random.Range(0, 10);
 
+        ProceduralLevel.ClearChildren(ProbHolder);
+        ProceduralLevel.ClearChildren(CatSpawnerHolder);
+        ProceduralLevel.ClearChildren(SpawnedCatHolder);
 
-        isProcess = true;
+        CatSpawners.Clear();
+        ProbObjects.Clear();
+
+        IsProcess = true;
         proceduralLevel.RandomProbSampling(this);
 
-
-
-        for (int i = 0; i < catSpawnerHolder.childCount; i++)
+        foreach (Transform child in CatSpawnerHolder)
         {
-            catSpawners.Add(catSpawnerHolder.GetChild(i).GetComponent<CatSpawner>());
+            CatSpawners.Add(child.GetComponent<CatSpawner>());
         }
 
-        for (int i = 0; i < probHolder.childCount; i++)
+        foreach (Transform child in ProbHolder)
         {
-            probObjects.Add(probHolder.GetChild(i).transform);
+            ProbObjects.Add(child);
         }
 
-        isProcess = false;
+        IsProcess = false;
     }
+    private void OnDestroy() => FindFirstObjectByType<SoundController>().PlayBackgroundMusic();
 
 }

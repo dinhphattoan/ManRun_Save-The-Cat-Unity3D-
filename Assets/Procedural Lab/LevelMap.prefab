@@ -167,24 +167,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb106ba1aeee0f64d964950da943869d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numRoads: 5
-  numCatSpawner: 5
-  numProb: 10
-  numSample: 0
-  difficulityScale: 0
-  navMeshSurface: {fileID: 8903307665196747752}
-  tsunamiLevels:
-  - levelName: Beginer
-    speed: 10
-    triggerTransform: {fileID: 8622151889461055914}
-  catParent: {fileID: 2473349461165265562}
-  roadParent: {fileID: 4176336623498618870}
-  probParent: {fileID: 373205527885339214}
-  envParent: {fileID: 6078115465463616376}
-  finishLineTransform: {fileID: 3275659425159223600}
-  playerSpawnPoint: {fileID: 2839983303579342395}
-  tsunamiSpawnPoint: {fileID: 4134886759237938619}
-  spawnedCatHolder: {fileID: 377699564860136226}
+  NumberOfRoads: 10
+  NumberOfCatSpawners: 10
+  NumberOfProb: 0
+  NumberOfSamples: 50
+  DifficultyScale: 0
+  NavMeshSurface: {fileID: 8903307665196747752}
+  TsunamiLevels:
+  - LevelName: Startup
+    Speed: 10
+    TriggerTransform: {fileID: 8622151889461055914}
+  CatParent: {fileID: 377699564860136226}
+  RoadParent: {fileID: 4176336623498618870}
+  ProbParent: {fileID: 373205527885339214}
+  EnvParent: {fileID: 6078115465463616376}
+  FinishLineTransform: {fileID: 3275659425159223600}
+  PlayerSpawnPoint: {fileID: 2839983303579342395}
+  TsunamiSpawnPoint: {fileID: 4134886759237938619}
+  SpawnedCatHolder: {fileID: 377699564860136226}
 --- !u!1 &3171982162977130741
 GameObject:
   m_ObjectHideFlags: 0
