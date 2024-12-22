@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Top Avatar Mask
+  m_Mask: 00000000000000000000000000000000000000000100000001000000010000000100000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Char_Root
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_L_Leg_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_L_Leg_1/Char_L_Leg_2
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_L_Leg_1/Char_L_Leg_2/Char_L_Leg_3
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_L_Leg_1/Char_L_Leg_2/Char_L_Leg_3/Char_L_Leg_4
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_L_Leg_1/Char_L_Leg_2/Char_L_Leg_3/Char_L_Leg_4/Char_L_Leg_5
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_R_Leg_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_R_Leg_1/Char_R_Leg_2
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_R_Leg_1/Char_R_Leg_2/Char_R_Leg_3
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_R_Leg_1/Char_R_Leg_2/Char_R_Leg_3/Char_R_Leg_4
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_R_Leg_1/Char_R_Leg_2/Char_R_Leg_3/Char_R_Leg_4/Char_R_Leg_5
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_1_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_1_1/Char_L_Fin_1_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_1_1/Char_L_Fin_1_2/Char_L_Fin_1_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_1_1/Char_L_Fin_1_2/Char_L_Fin_1_3/Char_L_Fin_1_4
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_2_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_2_1/Char_L_Fin_2_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_2_1/Char_L_Fin_2_2/Char_L_Fin_2_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_L_Shoulder/Char_L_Arm_1/Char_L_Arm_2/Char_L_Arm_3/Char_L_Fin_2_1/Char_L_Fin_2_2/Char_L_Fin_2_3/Char_L_Fin_2_4
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_Neck_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_Neck_1/Char_Head_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_Neck_1/Char_Head_1/Char_HeadEnd_1
+    m_Weight: 0
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_1_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_1_1/Char_R_Fin_1_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_1_1/Char_R_Fin_1_2/Char_R_Fin_1_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_1_1/Char_R_Fin_1_2/Char_R_Fin_1_3/Char_R_Fin_1_4
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_2_1
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_2_1/Char_R_Fin_2_2
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_2_1/Char_R_Fin_2_2/Char_R_Fin_2_3
+    m_Weight: 1
+  - m_Path: Char_Root/Char_Hips/Char_Spine_1/Char_Spine_2/Char_Spine_3/Char_R_Shoulder/Char_R_Arm_1/Char_R_Arm_2/Char_R_Arm_3/Char_R_Fin_2_1/Char_R_Fin_2_2/Char_R_Fin_2_3/Char_R_Fin_2_4
+    m_Weight: 1
+  - m_Path: Doc_Mesh
+    m_Weight: 0

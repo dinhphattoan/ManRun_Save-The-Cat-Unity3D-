@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3bd93a4bb5dc3c74f8db55d43c671413
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 261317
+  packageName: Virtual Joystick Pack
+  packageVersion: 1.1.0
+  assetPath: Assets/VirtualJoystick/Prefabs/Native Joysticks/Native Joystick (Black).prefab
+  uploadId: 711433

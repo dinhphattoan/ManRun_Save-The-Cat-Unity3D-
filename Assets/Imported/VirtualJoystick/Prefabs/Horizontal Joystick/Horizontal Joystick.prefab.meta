@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fbc216268c3fe5c4f94eb79f2381ad6c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 261317
+  packageName: Virtual Joystick Pack
+  packageVersion: 1.1.0
+  assetPath: Assets/VirtualJoystick/Prefabs/Horizontal Joystick/Horizontal Joystick.prefab
+  uploadId: 711433

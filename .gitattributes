@@ -1,0 +1,2 @@
+assets/Imported filter=lfs diff=lfs merge=lfs -text
+assets/Prefabs filter=lfs diff=lfs merge=lfs -text

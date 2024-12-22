@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5c2cb823f1af59541974bd4a360355f6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 261317
+  packageName: Virtual Joystick Pack
+  packageVersion: 1.1.0
+  assetPath: Assets/VirtualJoystick/Prefabs/Native Joysticks/Native Joystick (White).prefab
+  uploadId: 711433

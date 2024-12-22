@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49939053db723e241b1595219abb8132, type: 3}
+  m_Name: MechanicSetting
+  m_EditorClassIdentifier: 
+  gameDatabase: {fileID: 11400000, guid: 4623d7cc0470840488ba9c01a9d4dc85, type: 2}
+  playerEnergyBar: 100
+  tempAdditionalMaxSpeed: 0
+  moveSpeed: 0.0000065358936
+  maxMoveSpeed: 10
+  moveSpeedLerpSpeed: 1.7
+  tsunamiMoveSpeed: 10
+  SpawnRadius: 20
+  PickupTime: 1.02
+  MaxDelayWalkingRoutine: 3
+  Subdivisions: 10
+  HoverAngle: 120
+  HoverDistance: 15
+  eneryRecoverPerSecond: 10
+  energyMaxTempEarn: 0.2
+  costEnergyPerSpeed: 12

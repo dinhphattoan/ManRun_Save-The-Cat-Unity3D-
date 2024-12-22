@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bd6372cac36cf86438b3d3537ac67e40
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 261317
+  packageName: Virtual Joystick Pack
+  packageVersion: 1.1.0
+  assetPath: Assets/VirtualJoystick/Prefabs/Split Joystick/Split Joystick (Grey).prefab
+  uploadId: 711433
