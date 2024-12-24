@@ -1,13 +1,16 @@
-# README
 
-## Game Overview
+# ManRun vs Tsunami (Unity 3D mobile URP)
+Description: A thrilling run-and-rescue game where the player must outrun a massive tsunami, save cats along the way, navigate obstacles, and reach the finish line or save all the cats.
+- The project required default packages to run, it also need additional packages like "Splines", "Adaptive Performance", "NavMesh", or "AI Navigation", .... The requiredments have been included in the project and will be automatically install.
+- Download the pre-built APK here (Min SDK 27): [Download](https://drive.google.com/file/d/1bYuXOT77X7SHssNIf8V6gTNP348xbArO/view?usp=sharing)
 
-**Game Title:** Man vs. Tsunami  
-**Description:** A thrilling run-and-rescue game where the player must outrun a massive tsunami, save cats along the way, navigate obstacles, and reach the finish line. 
----
-* Download built apk here (Min SDK 27): https://drive.google.com/file/d/1-CfP4wfvJQUzV8L-xC-0Gf-yEdsp8F3Q/view?usp=drive_link
-## Key Features
+## How to Play
 
+1. Navigate through obstacles while running away from the tsunami.
+2. Save as many cats as possible along the way.
+3. Use coins to upgrade your speed and prepare for tougher levels.
+4. Enjoy procedurally generated maps for endless replayability.
+## Game Features
 1. **Upgrade Player Speed:**
    - Use in-game currency to increase player speed.
    - Earn coins by completing levels.
@@ -24,30 +27,23 @@
 
 5. **Dynamic Obstacles:**
    - Procedurally generated obstacles keep gameplay fresh and challenging.
-
----
-
-## Packages Used
-
-1. **Default Dependencies:**
-   - Required for the game to run properly.
-
-2. **Splines:**
-   - Required for smooth path creation and movement.
-
-3. **Adaptive Performance:**
-   - Built-in feature to dynamically adjust game performance for smoother gameplay.
-
-4. **Other Requirements:**
-   - Cinemachine: Advanced camera tools for cinematic and dynamic camera movements.
-   - NavMesh and AI Navigation: For advanced pathfinding and movement.
-   - Shader Graph: For creating custom shaders.
-   - URP (Universal Render Pipeline): For optimized rendering.
-
----
-
+## Installation
+1. The repository used **Git LFS**, make sure you have one installed and set up.
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/dinhphattoan/ManRun_SaveTheCat-Unity3D-mobile-.git
+   ```
+3. Open the project in your preferred game engine (e.g., Unity).
+4. Install required packages via the Package Manager.
+5. Build and run the game on your target platform.
+    
 ## Future Development and Improvements
-
+### Game Features:
+- Further game mechanics difficulty, adding new procedural event trigger during run such as (random car driving event, environments reacts).
+- Adding the energy trade feature in the first 3 second start of the game.
+- Adding the main menu run practice, earn coin along the run.
+- Intergrate Ads.
+### Improvements:
 1. **Optimization:**
    - Improve game performance by optimizing caching, shading, and other resource-intensive operations.
    - Utilize tools like Profiler and implement techniques such as parallel processing (e.g., job system, pooling, garbage collection).
@@ -63,25 +59,3 @@
 
 5. **Event Randomness:**
    - Add dynamic and random in-game events, such as cars driving on roads, to create deeper and more immersive experiences.
-
----
-
-## How to Play
-
-1. Navigate through obstacles while running away from the tsunami.
-2. Save as many cats as possible along the way.
-3. Use coins to upgrade your speed and prepare for tougher levels.
-4. Enjoy procedurally generated maps for endless replayability.
-
----
-
-## Installation
-0. The repository used Git LFS, make sure you have one installed.
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo-url.git
-   ```
-2. Open the project in your preferred game engine (e.g., Unity).
-3. Install required packages via the Package Manager.
-4. Build and run the game on your target platform.
-
