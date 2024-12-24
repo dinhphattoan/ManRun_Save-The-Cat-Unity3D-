@@ -59,6 +59,7 @@ public class ProceduralLevel : MonoBehaviour
     {
         ClearChildren(levelParent);
         LevelSettings = null;
+        levelSettingTransforms = null;
     }
     public void Reinitialize()
     {

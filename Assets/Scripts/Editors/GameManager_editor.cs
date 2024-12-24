@@ -10,12 +10,6 @@ public class GameManager_editor : Editor
     {
         base.OnInspectorGUI();
         GUILayout.Space(15);
-        GUILayout.Label("Game Mechanics");
-        if (GUILayout.Button("Handle Energy Trade"))
-        {
-            ((GameManager)target).Convert_Energy();
-        }
-        GUILayout.Space(15);
         if(GUILayout.Button("Restart Round", GUILayout.Height(30)))
         {
             ((GameManager)target).ReloadLevel();

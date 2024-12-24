@@ -18,7 +18,7 @@ MonoBehaviour:
   _moveSpeed: 0
   _maxMoveSpeed: 10
   _moveSpeedLerpSpeed: 10
-  _rotationSpeed: 9
+  _rotationSpeed: 10
   _tsunamiMoveSpeed: 10
   SpawnRadius: 20
   PickupTime: 1.02

@@ -10150,7 +10150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameDatabase: {fileID: 11400000, guid: 4623d7cc0470840488ba9c01a9d4dc85, type: 2}
   backgroundAudioSource: {fileID: 330585548}
-  activeAudioSource: []
   audioPoolHolder: {fileID: 1757943576}
   audioPoolSize: 5
 --- !u!114 &1080301683
@@ -16621,7 +16620,7 @@ GameObject:
   - component: {fileID: 8298451831299406885}
   - component: {fileID: 6718883473343176804}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: NumCatText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

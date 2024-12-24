@@ -70,9 +70,9 @@ namespace GameMechanic
         private void OnEnable()
         {
             proceduralLevel = FindFirstObjectByType<ProceduralLevel>();
+            cameraController.Initialize();
             DontDestroyOnLoad(gameObject);
             DontDestroyOnLoad(proceduralLevel.gameObject);
-
             gameStart = false;
         }
         #region Initialize
@@ -213,6 +213,7 @@ namespace GameMechanic
 
             finalizeUIPanel.gameObject.SetActive(true);
             finishText.text = "You lost!";
+            saveCatText.text = nSavedCat.ToString();
             FillFinalizeBoard(0);
         }
         public void FillFinalizeBoard(int additionalCoinEarn)
@@ -220,7 +221,8 @@ namespace GameMechanic
             coinEarnText.text = $"{10 * nSavedCat} ({nSavedCat} cats)";
             if (additionalCoinEarn != 0) coinEarnText.text += $"\n+{additionalCoinEarn} (Win)";
             float multiplier = 1f;
-            if (proceduralLevel.levelSettingTransforms.Length > 0)
+            //If level is custom level
+            if (proceduralLevel.levelSettingTransforms != null && proceduralLevel.levelSettingTransforms.Length > 0)
             {
                 LevelSetting levelSetting = proceduralLevel.levelSettingTransforms[0].GetComponent<LevelSetting>();
                 multiplier += levelSetting.DifficultyScale;
@@ -266,8 +268,12 @@ namespace GameMechanic
         }
         public void HandleMainMenu()
         {
-            StopAllCoroutines();
-            StartCoroutine(Coroutine_MainMenu());
+            if (!isRestart)
+            {
+                StopAllCoroutines();
+                StartCoroutine(Coroutine_MainMenu());
+            }
+
         }
         public IEnumerator InitializeLevelStart()
         {
